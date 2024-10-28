@@ -49,7 +49,7 @@ function generateIcon(seed = prompt.value) {
     fetch(apiUrl)
         .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('Проблема с сетью');
             }
             return response.text();
         })
@@ -67,8 +67,8 @@ function generateIcon(seed = prompt.value) {
             animateIcon();
         })
         .catch(error => {
-            console.error('Error:', error);
-            iconContainer.innerHTML = 'Error generating icon. Please try again.';
+            console.error('Ошибка:', error);
+            iconContainer.innerHTML = 'Значок, генерирующий ошибку. Пожалуйста, попробуйте снова.';
             iconContainer.classList.add('shake');
             setTimeout(() => {
                 iconContainer.classList.remove('shake');
@@ -112,7 +112,7 @@ function sanitizeInput(input) {
 
 generateBtn.addEventListener('click', () => {
     if (prompt.value.trim() === '') {
-        showToast('Please enter a description for your icon.');
+        showToast('Пожалуйста, введите описание вашего значка.');
         return;
     }
     generateIcon(sanitizeInput(prompt.value));
@@ -130,17 +130,17 @@ downloadBtn.addEventListener('click', () => {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    showToast('Icon downloaded successfully!');
+    showToast('Значок успешно загружен!');
 });
 
 copyBtn.addEventListener('click', () => {
     const svgContent = iconContainer.innerHTML;
     const minifiedSvg = svgContent.replace(/>\s+</g, '><').trim();
     navigator.clipboard.writeText(minifiedSvg).then(() => {
-        showToast('SVG code copied to clipboard!');
+        showToast('SVG-код скопирован в буфер обмена!');
     }, (err) => {
-        console.error('Could not copy text: ', err);
-        showToast('Failed to copy SVG code.');
+        console.error('Не удалось скопировать текст: ', err);
+        showToast('Не удалось скопировать SVG-код.');
     });
 });
 
@@ -193,7 +193,7 @@ function saveIconSettings() {
         filter: iconFilter.value
     };
     localStorage.setItem('iconSettings', JSON.stringify(settings));
-    showToast('Icon settings saved!');
+    showToast('Настройки значка сохранены!');
 }
 
 function loadIconSettings() {
@@ -209,9 +209,9 @@ function loadIconSettings() {
         iconContainer.style.width = `${settings.size}px`;
         iconContainer.style.height = `${settings.size}px`;
         iconContainer.style.filter = settings.filter;
-        showToast('Saved icon settings loaded!');
+        showToast('Настройки загружены!');
     } else {
-        showToast('No saved settings found.');
+        showToast('Сохраненные настройки не найдены.');
     }
 }
 
@@ -250,14 +250,14 @@ function activateEasterEgg() {
     }
 
     const interval = setInterval(changeColorAndRotate, 200);
-    showToast('Easter egg activated! Enjoy the wild ride!');
+    showToast('Пасхалка активирована! Наслаждайтесь дикой поездкой!');
 
     setTimeout(() => {
         clearInterval(interval);
         document.body.style.backgroundColor = '';
         document.body.style.transform = '';
         iconContainer.style.transform = '';
-        showToast('Easter egg deactivated. Hope you enjoyed the show!');
+        showToast('Пасхалка теперь отключена. Надеюсь, вам понравилось шоу!');
     }, 10000);
 }
 
@@ -272,7 +272,7 @@ function rateLimit(func, limit, interval) {
             lastReset = now;
         }
         if (calls >= limit) {
-            showToast('Too many requests. Please wait a moment.');
+            showToast('Слишком много запросов. Пожалуйста, подождите минутку.');
             return;
         }
         calls++;
@@ -282,7 +282,7 @@ function rateLimit(func, limit, interval) {
 
 generateBtn.addEventListener('click', rateLimit(() => {
     if (prompt.value.trim() === '') {
-        showToast('Please enter a description for your icon.');
+        showToast('Пожалуйста, введите описание вашего значка.');
         return;
     }
     generateIcon(sanitizeInput(prompt.value));

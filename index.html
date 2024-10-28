@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Icon Generator</title>
+    <title>Генератор иконок</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -12,16 +12,16 @@
 <body>
     <div class="container">
         <div>
-        <h1>Creative Icon Generator</h1>
+        <h1>Генератор иконок</h1>
         <div class="input-group">
-            <input type="text" id="prompt" placeholder="Describe your icon...">
-            <button id="generateBtn">Generate</button>
+            <input type="text" id="prompt" placeholder="Опишите свою иконку... (на английском яз.)">
+            <button id="generateBtn">Сгенерировать</button>
         </div>
         <div id="styleOptions">
-            <button style="border-radius: 5px 0 0 5px;" class="style-option active" data-style="shapes">Shapes</button>
-            <button class="style-option" data-style="avataaars">Avatars</button>
-            <button class="style-option" data-style="bottts">Robots</button>
-            <button style="border-radius: 0 5px 5px 0;" class="style-option" data-style="identicon">Abstract</button>
+            <button style="border-radius: 5px 0 0 5px;" class="style-option active" data-style="shapes">Фигуры</button>
+            <button class="style-option" data-style="avataaars">Аватары</button>
+            <button class="style-option" data-style="bottts">Роботы</button>
+            <button style="border-radius: 0 5px 5px 0;" class="style-option" data-style="identicon">Абстрактные</button>
         </div>
         <div id="colorPicker">
             <button class="color-option" style="background-color: #3498db;" data-color="#3498db"></button>
@@ -32,23 +32,23 @@
         </div>
         <input type="range" id="iconSize" min="100" max="240" value="240" step="10">
         <select id="iconFilter">
-            <option value="none">None</option>
-            <option value="grayscale(100%)">Grayscale</option>
-            <option value="sepia(100%)">Sepia</option>
-            <option value="invert(100%)">Invert</option>
-            <option value="blur(2px)">Blur</option>
+            <option value="none">Ничего</option>
+            <option value="grayscale(100%)">Полутоновый</option>
+            <option value="sepia(100%)">Сепия</option>
+            <option value="invert(100%)">Инверт</option>
+            <option value="blur(2px)">Блюр</option>
         </select>
         </div>
         <div id="result">
             <div id="iconContainer"></div>
             <div class="button-group">
-                <button id="downloadBtn">Download SVG</button>
-                <button id="copyBtn">Copy SVG</button>
-                <button id="randomizeBtn">Randomize</button>
+                <button id="downloadBtn">Скачать SVG</button>
+                <button id="copyBtn">Скопировать SVG</button>
+                <button id="randomizeBtn">Рандом</button>
             </div>
             <div class="button-group btn-group">
-                <button class="button-saves" id="saveSettingsBtn">Save Settings</button>
-                <button class="button-saves" id="loadSettingsBtn">Load Settings</button>
+                <button class="button-saves" id="saveSettingsBtn">Сохранить</button>
+                <button class="button-saves" id="loadSettingsBtn">Загрузить</button>
             </div>
         </div>
     </div>
