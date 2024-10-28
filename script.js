@@ -49,7 +49,7 @@ function generateIcon(seed = prompt.value) {
     fetch(apiUrl)
         .then(response => {
             if (!response.ok) {
-                throw new Error('Проблема с сетью');
+                throw new Error('Проблема с сетью. Повторите попытку позже.');
             }
             return response.text();
         })
@@ -68,7 +68,7 @@ function generateIcon(seed = prompt.value) {
         })
         .catch(error => {
             console.error('Ошибка:', error);
-            iconContainer.innerHTML = 'Значок, генерирующий ошибку. Пожалуйста, попробуйте снова.';
+            iconContainer.innerHTML = 'Значок при генерации выдал ошибку. Пожалуйста, попробуйте снова.';
             iconContainer.classList.add('shake');
             setTimeout(() => {
                 iconContainer.classList.remove('shake');
