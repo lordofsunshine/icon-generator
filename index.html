@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Icon Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div>
+        <h1>Creative Icon Generator</h1>
+        <div class="input-group">
+            <input type="text" id="prompt" placeholder="Describe your icon...">
+            <button id="generateBtn">Generate</button>
+        </div>
+        <div id="styleOptions">
+            <button style="border-radius: 5px 0 0 5px;" class="style-option active" data-style="shapes">Shapes</button>
+            <button class="style-option" data-style="avataaars">Avatars</button>
+            <button class="style-option" data-style="bottts">Robots</button>
+            <button style="border-radius: 0 5px 5px 0;" class="style-option" data-style="identicon">Abstract</button>
+        </div>
+        <div id="colorPicker">
+            <button class="color-option" style="background-color: #3498db;" data-color="#3498db"></button>
+            <button class="color-option" style="background-color: #2ecc71;" data-color="#2ecc71"></button>
+            <button class="color-option" style="background-color: #e74c3c;" data-color="#e74c3c"></button>
+            <button class="color-option" style="background-color: #f39c12;" data-color="#f39c12"></button>
+            <input type="color" id="customColorPicker" value="#3498db">
+        </div>
+        <input type="range" id="iconSize" min="100" max="240" value="240" step="10">
+        <select id="iconFilter">
+            <option value="none">None</option>
+            <option value="grayscale(100%)">Grayscale</option>
+            <option value="sepia(100%)">Sepia</option>
+            <option value="invert(100%)">Invert</option>
+            <option value="blur(2px)">Blur</option>
+        </select>
+        </div>
+        <div id="result">
+            <div id="iconContainer"></div>
+            <div class="button-group">
+                <button id="downloadBtn">Download SVG</button>
+                <button id="copyBtn">Copy SVG</button>
+                <button id="randomizeBtn">Randomize</button>
+            </div>
+            <div class="button-group btn-group">
+                <button class="button-saves" id="saveSettingsBtn">Save Settings</button>
+                <button class="button-saves" id="loadSettingsBtn">Load Settings</button>
+            </div>
+        </div>
+    </div>
+    <div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
